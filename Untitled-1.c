@@ -15,14 +15,18 @@ int main()
     printf("Enter a,b,c:");
 
     double a=NAN, b=NAN, c=NAN;
-
-    // scanf("%lg %lg %lg", &a,  &b, &c);
-
-
+    int k = scanf("%lg %lg %lg", &a,  &b, &c);
+    printf("k = %d \n",k);
+    
+    if (k == 3)
+    {
+        printf("ERROR! TRY AGAIN \n");
+    }
+   
     double x1 = NAN, x2 = NAN;
     
-    RunTest(1, 1, 0, -4, 2, -2, 2);
-    RunTest(2, 0, 0, 0, 0, 0, Any_Root);
+    // RunTest(1, 1, 0, -4, 2, -2, 2);
+    // RunTest(2, 0, 0, 0, 0, 0, AnyRoot);
 
     int nRoots = SolveSquare(a, b, c, &x1, &x2);
 
@@ -34,6 +38,9 @@ int main()
 
 int SolveSquare(double a, double b, double c, double* x1, double* x2)
 {
+    // TODO asserts
+    // 
+    
     if (a == 0) 
     {
         if (b == 0)
@@ -44,7 +51,8 @@ int SolveSquare(double a, double b, double c, double* x1, double* x2)
             }
             else
             {
-            return 0;
+                return 0;
+            
             }
         }
         else 
@@ -76,7 +84,7 @@ int SolveSquare(double a, double b, double c, double* x1, double* x2)
 }
 
 
-int Print_Roots(int nRoots, double x1, double x2)
+void Print_Roots(int nRoots, double x1, double x2)
 {
     switch(nRoots)
     {
