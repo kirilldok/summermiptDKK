@@ -4,7 +4,7 @@
 struct DataTest
 {
     int nTest;
-    double a, b, c;
+    double data, b, c;
     double x1_expected, x2_expected;
     int nRoots_expected;
 };

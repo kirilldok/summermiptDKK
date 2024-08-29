@@ -8,10 +8,10 @@
 void SquareEquationSolver()
 {
     printf("Square equation solver\n");
-    printf("Enter a,b,c:");
+    printf("Enter data,b,c:");
             
-    double a=NAN, b=NAN, c=NAN;
-    int nDigits = scanf("%lg %lg %lg", &a,  &b, &c);  
+    double data=NAN, b=NAN, c=NAN;
+    int nDigits = scanf("%lg %lg %lg", &data,  &b, &c);  
 
     if (nDigits != 3)
     {
@@ -20,7 +20,7 @@ void SquareEquationSolver()
     }
             
     double x1 = NAN, x2 = NAN;
-    int nRoots = SolveSquare(a, b, c, &x1, &x2);
+    int nRoots = SolveSquare(data, b, c, &x1, &x2);
 
     Print_Roots(nRoots, x1, x2);
 }
@@ -45,14 +45,14 @@ bool DoubleEquality(double x, double y)
 }
 
 
-int SolveSquare(double a, double b, double c, double* x1, double* x2)
+int SolveSquare(double data, double b, double c, double* x1, double* x2)
 {
     assert(x1 != x2);
-    assert(isfinite(a));
+    assert(isfinite(data));
     assert(isfinite(b));
     assert(isfinite(c));
     
-    if (DoubleEquality(a, 0)) 
+    if (DoubleEquality(data, 0)) 
     {
         if (DoubleEquality(b, 0))
         {
@@ -73,20 +73,20 @@ int SolveSquare(double a, double b, double c, double* x1, double* x2)
     }
     else
     {
-        double D = b*b - 4*a*c;
+        double D = b*b - 4*data*c;
         if (D < 0)
         {
             return No_Real_Roots;
         }
         else if (DoubleEquality(D, 0))
         {
-            *x1 = *x2 = -b / (2*a);
+            *x1 = *x2 = -b / (2*data);
             return 1;
         }
         else if (D > 0)
         {
-            *x1 = (-b + sqrt(D))/(2*a);
-            *x2 = (-b - sqrt(D))/(2*a);
+            *x1 = (-b + sqrt(D))/(2*data);
+            *x2 = (-b - sqrt(D))/(2*data);
             return 2;
         }
     }

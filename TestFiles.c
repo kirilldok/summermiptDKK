@@ -26,12 +26,12 @@ void UnitTester()
 void RunTest(DataTest data)
 {
     double x1 = NAN, x2 = NAN;
-    int nRoots = SolveSquare(data.a, data.b, data.c, &x1, &x2);
+    int nRoots = SolveSquare(data.data, data.b, data.c, &x1, &x2);
     
     if (nRoots != data.nRoots_expected || (!DoubleEquality(x1, data.x1_expected)) || (!DoubleEquality(x2, data.x2_expected)))
     {
-        printf("ERROR Test%d, a=%lg, b=%lg, c=%lg, x1=%lg, x2=%lg, nRoots=%d \n"
-        "EXPECTED: x1=%lg, x2=%lg, nRoots=%d \n", data.nTest, data.a, data.b, data.c,
+        printf("ERROR Test%d, data=%lg, b=%lg, c=%lg, x1=%lg, x2=%lg, nRoots=%d \n"
+        "EXPECTED: x1=%lg, x2=%lg, nRoots=%d \n", data.nTest, data.data, data.b, data.c,
          x1, x2, nRoots, data.x1_expected, data.x2_expected, data.nRoots_expected);    
     } 
     else
